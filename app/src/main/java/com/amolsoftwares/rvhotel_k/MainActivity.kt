@@ -2,7 +2,6 @@ package com.amolsoftwares.rvhotel_k
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -15,14 +14,15 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
-        val users = ArrayList<User>()
+        val hotel = ArrayList<Hotel>()
 
-        users.add(User("Amol Gadage", "Sangamner, Maharashtra"))
-        users.add(User("Rutuja Kardile", "Sangamner, Maharashtra"))
-        users.add(User("Varsha Shirsath", "Sangamner, Maharashtra"))
-        users.add(User("Avinash Kamble", "Sangamner, Maharashtra"))
+        hotel.add(Hotel(" ", true, "Chillax Heritage", "Santosa Road | 4.5KM from center", 3.5f, "350 Reviews", "US \$450", "1 room 1 night (tax include)"))
+        hotel.add(Hotel(" ", true, "Hotel Bangkok Saran", "Orchard Road | 1KM from center", 2.8f, "150 Reviews", "US \$150", "1 room 1 night (tax include)"))
+        hotel.add(Hotel(" ", true, "One 10", "Lavender Road | 3KM from center", 4.8f, "256 Reviews", "US \$300", "1 room 1 night (tax include)"))
+        hotel.add(Hotel(" ", true, "Marina Lavender", "Lavender Road | 4KM from center", 4.6f, "650 Reviews", "US \$320", "1 room 1 night (tax include)"))
+        hotel.add(Hotel(" ", true, "Hotel Bangkok Saran", "Orchard Road | 1KM from center", 3.2f, "154 Reviews", "US \$500", "1 room 1 night (tax include)"))
 
-        val adapter = CustomAdapter(users)
+        val adapter = CustomAdapter(hotel)
 
         recyclerView.adapter = adapter
 

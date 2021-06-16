@@ -3,35 +3,47 @@ package com.amolsoftwares.rvhotel_k
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(val userList: ArrayList<User>) :
+class CustomAdapter(val hotelList: ArrayList<Hotel>) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): CustomAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.list_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.team1_layout, parent, false)
         return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
-        holder.bindItems(userList[position])
+        holder.bindItems(hotelList[position])
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return hotelList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(user: User) {
-            val textViewName = itemView.findViewById(R.id.textViewUsername) as TextView
-            val textViewAddress = itemView.findViewById(R.id.textViewAddress) as TextView
-            textViewName.text = user.name
-            textViewAddress.text = user.address
+        fun bindItems(hotel: Hotel) {
+            val tvName = itemView.findViewById(R.id.tv_name) as TextView
+            val tvAddress = itemView.findViewById(R.id.tv_address) as TextView
+            val rate = itemView.findViewById(R.id.ratingBar) as RatingBar
+            val tvReview = itemView.findViewById(R.id.tv_reviews) as TextView
+            val tvPrice = itemView.findViewById(R.id.tv_price) as TextView
+            val tvRoomTime = itemView.findViewById(R.id.tv_room_time) as TextView
+            //val iv_proPic = itemView.findViewById(R.id.iv_pic) as ImageView
+
+            tvName.text = hotel.name
+            tvAddress.text = hotel.address
+            rate.rating = hotel.rate
+            tvReview.text = hotel.reviews
+            tvPrice.text = hotel.price
+            tvRoomTime.text = hotel.roomTime
+
         }
     }
 }
