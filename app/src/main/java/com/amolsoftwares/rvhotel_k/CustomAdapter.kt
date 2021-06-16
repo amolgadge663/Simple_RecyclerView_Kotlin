@@ -3,6 +3,7 @@ package com.amolsoftwares.rvhotel_k
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,8 @@ class CustomAdapter(val hotelList: ArrayList<Hotel>) :
             val tvPrice = itemView.findViewById(R.id.tv_price) as TextView
             val tvRoomTime = itemView.findViewById(R.id.tv_room_time) as TextView
             //val iv_proPic = itemView.findViewById(R.id.iv_pic) as ImageView
+            val iv_isFav = itemView.findViewById(R.id.iv_fav) as ImageView
+
 
             tvName.text = hotel.name
             tvAddress.text = hotel.address
@@ -43,6 +46,8 @@ class CustomAdapter(val hotelList: ArrayList<Hotel>) :
             tvReview.text = hotel.reviews
             tvPrice.text = hotel.price
             tvRoomTime.text = hotel.roomTime
+
+            iv_isFav.visibility = if (hotel.isFav) View.VISIBLE else View.INVISIBLE
 
         }
     }
